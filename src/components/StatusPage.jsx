@@ -3,8 +3,6 @@
 let React = require('react');
 let $ = require('jquery');
 
-import {get} from '../actions/request.jsx';
-
 let ROOT_URI = "https://app.statusy.co/api/v1/public/statuspage";
 
 let StatusPage = React.createClass({
@@ -14,7 +12,7 @@ let StatusPage = React.createClass({
       }
    },
    componentDidMount() {
-      $.get(`${ROOT_URI}/statusy`).done(function(data) {
+      $.get(`${ROOT_URI}/${this.props.location.query.statuspage}`).done(function(data) {
          this.setState({statusPageData: data.statuspage});
       }.bind(this));
    },
@@ -39,7 +37,7 @@ let StatusPage = React.createClass({
       if (this.state.statusPageData) {
          return (
             <div>
-               {this.getStatusPageDisplayComponent('statusy')}
+               {this.getStatusPageDisplayComponent()}
             </div>
          );
       }
