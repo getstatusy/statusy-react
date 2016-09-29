@@ -8,6 +8,8 @@ import StatusPage from './components/StatusPage.jsx';
 
 ReactDOM.render((
    <Router history={browserHistory}>
-      <Route path="/" component={StatusPage}/>
+      <Route path="/" component={StatusPage}>
+         <Route path="/statusy-mini.html" component={StatusPage}/>
+      </Route>
    </Router>
 ), document.getElementById('statusy-react'));

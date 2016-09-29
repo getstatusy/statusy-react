@@ -48,5 +48,13 @@ module.exports = {
 				presets: ['es2015', 'react']
 			}
 		}],
-	}
+	},
+   resolve: {
+       alias: {
+         'react$': path.join(__dirname, 'node_modules', 'react','dist',
+           (!debug ? 'react.min.js' : 'react.js')),
+         'react-dom$': path.join(__dirname, 'node_modules', 'react-dom','dist',
+           (!debug ? 'react-dom.min.js' : 'react-dom.js'))
+       }
+     }
 };
